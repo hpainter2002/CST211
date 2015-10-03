@@ -1,0 +1,11 @@
+1. What are the considerations you had to include in your operator= function?
+   In operator= function I had to consider that the memory allocation was going to be dynamic and new should be used. Return type also needed    consideration that whole array needs to be returned in the operator= function.
+
+2. What is the similarity and difference between copy constructor and operator= functions
+   The copy constructor and operator= are very similar, except for the return type. Operator= return *this. Assignment operator is only invoked      when you are trying to assign something to an object that was created using the default constructor.
+
+3. What steps did you take to ensure no memory leaks
+   Made sure that all the destructors were properly implemented and the program does not crash in debgging mode.
+
+4. In terms of big O how long would it take to find an element of this array? How could this be improved? What would the expression become?
+   In terms of big O to find an element would be linear time. You can improve your time by implementing a find function that uses a binary search    cutting the time to log n.
