@@ -96,8 +96,15 @@ T & Array<T>::operator [](int index)
 {
 	cout << "Subscript operator called!" << endl;
 
-	return m_myArray[index];
-	
+	if (index > m_length - 1  || index < m_start_index)
+	{
+		throw Exception ("Out of Bounds!");
+		return m_myArray[index];
+	}
+	else
+	{
+		return m_myArray[index];
+	}	
 }
 
 template <typename T>
@@ -123,3 +130,4 @@ void Array<T>::setLength(int length)
 {
 	m_length = length;
 }
+

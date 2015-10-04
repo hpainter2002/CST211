@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+	
 	Array<int> intArray(10);           //create an int array 
 	Array<Book> bookArray(10);
 
@@ -27,7 +28,16 @@ int main()
 	intArray[6] = 10;
 	intArray[7] = 11;
 	intArray[8] = 12;
-	intArray[11] = 13;
+	try
+	{
+		intArray[12] = 13;
+
+	}
+	catch (Exception & except)
+	{
+		cout << except.getMessage() << endl;
+	}
+	
 
 	Array<int> intArray2(intArray);    //create a copy 
 
