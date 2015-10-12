@@ -1,0 +1,16 @@
+Write-up Questions
+1.	What considerations would have to be taken to add a columns class? What would be the advantage
+	A column class would pretty much be the same as the row class with a few changes. The advantage of having a column class would be that 	the class would be more flexible if someone wanted to make a change to the class.	
+
+2.	What is forward declaration and how is it used? Why does it work?
+	Forward declation is used to tell the compiler which function or class is being used before you use it so there is no ambiguity and the 	compiler doesn't have to use more memory to figure out which function or class you are talking about.	
+
+3.	What would the code look like to rotate a 2d array by 90 degrees. What would be the big-O notation for this operation
+
+	for (int i = 0; i < board.getRow(); i++)
+	{
+		for (int k = board.getColumn() - 1; k >= 0; k--)
+		{
+			board[k][i] = data;
+		}
+	}
