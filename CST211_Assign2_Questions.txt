@@ -14,3 +14,5 @@ Write-up Questions
 			board[k][i] = data;
 		}
 	}
+
+	Big O notation for this operation will be n^2.
