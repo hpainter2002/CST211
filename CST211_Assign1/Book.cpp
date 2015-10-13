@@ -1,3 +1,9 @@
+/*
+Hatim Painter
+CST 211 Assignment 1
+10/8/2015
+*/
+
 #include "Book.h"
 #include <iostream>
 using namespace std;
@@ -7,8 +13,6 @@ Book::Book()
 	m_title = nullptr;
 	m_id = 0;
 	m_flag = false;
-
-	cout << "Default constructor was called!" << endl;
 }
 
 Book::Book(char * title, int id, bool flag = false)
@@ -17,9 +21,6 @@ Book::Book(char * title, int id, bool flag = false)
 	strcpy_s(m_title, 100, title);
 	m_id = id;
 	m_flag = flag;
-
-	cout << "Book constructor (non-default) called!" << endl;
-
 }
 
 Book::Book(char * title, int id)
@@ -28,7 +29,6 @@ Book::Book(char * title, int id)
 	strcpy_s(m_title, 100, title);
 	m_id = id;
 	m_flag = false;
-	cout << "Book constructor with 2 parameters called!" << endl;
 }
 
 Book::Book(const Book& aCopy)
@@ -41,19 +41,16 @@ Book::Book(const Book& aCopy)
 	if (aCopy.m_flag == true)
 	{
 		cout << aCopy.m_title << " is checked out." << endl;
-		cout << "Copy constructor was invoked!" << endl;
 	}
 	else
 	{
 		cout << aCopy.m_title << " is not checked out." << endl;
-		cout << "Copy constructor was invoked!" << endl;
 	}
 }
 
 Book::~Book()
 {
 	delete[]  m_title;
-	cout << "The destructor was invoked!" << endl;
 }
 
 char* Book::getTitle() const

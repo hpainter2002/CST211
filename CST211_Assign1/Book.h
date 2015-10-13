@@ -1,7 +1,14 @@
+/*
+Hatim Painter
+CST 211 Assignment 1
+10/8/2015
+*/
+
 #ifndef BOOK_H
 #define BOOK_H
 #include <iostream>
-
+ 
+// Book class is to test the templated array's capabilities on handling objects
 class Book
 {
 public:

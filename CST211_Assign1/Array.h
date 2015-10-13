@@ -1,3 +1,9 @@
+/*
+Hatim Painter
+CST 211 Assignment 1
+10/8/2015
+*/
+
 #pragma once
 
 #include <iostream>
@@ -9,18 +15,19 @@ template <typename T>
 class Array
 {
 public:
-	Array();
-	Array(int length, int start_index = 0);
-	Array(const Array & aCopy);
-	~Array();
+	Array();										// Default constructor
+	Array(int length, int start_index = 0);			// Constructs an array of specified length wiht start index defaulted to 0
+	Array(const Array & aCopy);						// Copy constructor
+	~Array();										// Destructor
 
-	Array<T> & Array<T>::operator =(const Array & anArray);
-	T & operator [](int index);
+	Array<T> & operator =(const Array & anArray);	// Overloaded assignment operator
+	T & operator [](int index);						// Overloaded subscript operator
 
-	int getStartIndex();
-	void setStartIndex(int start_index);
-	int getLength();
-	void setLength(int length);
+	int getStartIndex();							// Returns the current start index
+	void setStartIndex(int start_index);			// Sets the start index to an integer value
+	int getLength();								// Returns the length of the array
+	void setLength(int length);						// Changes the length of the array to the specified length
+	void display() const;							// Displays the array
 
 private:
 	T * m_myArray;
@@ -28,106 +35,4 @@ private:
 	int m_start_index;
 };
 
-template <typename T>
-Array<T>::Array()
-{
-	m_myArray = nullptr;
-	m_length = 0;
-	m_start_index = 0;
-
-	cout << "Default ctor called!" << endl;
-}
-
-template <typename T>
-Array<T>::Array(int length, int start_index)
-{
-	m_myArray = new T[length];
-	m_length = length;
-	m_start_index = start_index;
-
-	cout << "Non-default ctor called!" << endl;
-}
-
-template <typename T>
-Array<T>::Array(const Array<T> & aCopy)
-{
-	m_myArray = new T[aCopy.m_length];
-
-	for (int i = 0; i < aCopy.m_length; i++)
-	{
-		m_myArray[i] = aCopy.m_myArray[i];
-	}
-
-	m_length = aCopy.m_length;
-	m_start_index = aCopy.m_start_index;
-
-	cout << "Copy ctor called!" << endl;
-}
-
-template <typename T>
-Array<T>::~Array()
-{
-	delete[] m_myArray;
-
-	cout << "Destructor called!" << endl;
-}
-
-template <typename T>
-Array<T> & Array<T>::operator =(const Array<T> & anArray)
-{
-	
-	m_myArray = new T[anArray.m_length];
-
-	for (int i = 0; i < anArray.m_length; i++)
-	{
-		m_myArray[i] = anArray.m_myArray[i];
-	}
-
-	m_length = anArray.m_length;
-	m_start_index = anArray.m_start_index;
-
-	cout << "Assignment operator called!" << endl;
-
-	return *this;
-}
-
-template <typename T>
-T & Array<T>::operator [](int index)
-{
-	cout << "Subscript operator called!" << endl;
-
-	if (index > m_length - 1  || index < m_start_index)
-	{
-		throw Exception ("Out of Bounds!");
-		return m_myArray[index];
-	}
-	else
-	{
-		return m_myArray[index];
-	}	
-}
-
-template <typename T>
-int Array<T>::getStartIndex()
-{
-	return m_start_index;
-}
-
-template <typename T>
-void Array<T>::setStartIndex(int start_index)
-{
-	m_start_index = start_index;
-}
-
-template <typename T>
-int Array<T>::getLength()
-{
-	return m_length;
-}
-
-template <typename T>
-void Array<T>::setLength(int length)
-{
-	m_length = length;
-}
-
+#include "Array.cpp"

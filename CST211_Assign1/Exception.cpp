@@ -1,3 +1,9 @@
+/*
+Hatim Painter
+CST 211 Assignment 1
+10/8/2015
+*/
+
 #include "Exception.h"
 
 ostream & operator <<(ostream & str, const Exception & anException);
